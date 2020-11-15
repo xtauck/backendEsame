@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 app.use(cors())
 app.get('/t', (req, res) => {
-  res.send('Hello Liviu!')
+  res.send('Hello Liviu!!')
 })
 
 app.listen(process.env.PORT || port, () => {
