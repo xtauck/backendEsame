@@ -8,12 +8,6 @@ app.use(cors())
 
 var repairs = []
 
-app.get('/t', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send('Hello Max!!!')
-})
-
 app.listen(process.env.PORT || port, () => {
   console.log(`Backend listening at port 80`)
 })
