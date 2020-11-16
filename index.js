@@ -24,9 +24,9 @@ app.post('/calculate', (req, res) => {
   let finish=info.endDate*/
   console.log(req.body) 
 
-  repairs.push(req.body.data)
+  repairs.push(req.body.info)
 
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send(req.body)
+  res.send(req.body.info)
 })
