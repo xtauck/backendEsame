@@ -25,6 +25,7 @@ app.post('/calculate', (req, res) => {
   let deviceType = info.device
   console.log(req.body)
   let hours= Math.floor((finish - start) / (1000*60*60))
+  console.log(hours)
   switch (deviceType) {
     case "PC Desktop":
 
@@ -34,5 +35,5 @@ app.post('/calculate', (req, res) => {
 
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send(hours)
+  res.send(info)
 })
