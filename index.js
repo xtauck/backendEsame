@@ -19,14 +19,14 @@ app.listen(process.env.PORT || port, () => {
 })
 
 app.post('/calculate', (req, res) => {
-  let info=req.body.data.info
+  /*let info=req.body.data.info
   let start=info.startDate
-  let finish=info.endDate
-
+  let finish=info.endDate*/
+  console.log(req.body) 
 
   repairs.push(req.body.data)
 
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send(info)
+  res.send(req.body)
 })
