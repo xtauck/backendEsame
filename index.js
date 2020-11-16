@@ -40,8 +40,8 @@ app.post('/calculate', (req, res) => {
   }
   info.cost=cost
   repairs.push(info)
-
+  let result={price: cost}
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send(cost)
+  res.send(result)
 })
