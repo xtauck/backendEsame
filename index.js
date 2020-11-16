@@ -23,17 +23,25 @@ app.post('/calculate', (req, res) => {
   let start = new Date(info.startDate)
   let finish = new Date(info.endDate)
   let deviceType = info.device
+  let cost=0
   console.log(req.body)
   let hours= Math.floor((finish - start) / (1000*60*60))
   console.log(hours)
   switch (deviceType) {
     case "PC Desktop":
-
+      cost=30*hours
+      break
+      case "Tablet":
+      cost=20*hours
+      break
+      case "Notebook":
+      cost=50*hours
       break
   }
-  repairs.push(req.body.info)
+  info.cost=cost
+  repairs.push(info)
 
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send(info)
+  res.send(cost)
 })
