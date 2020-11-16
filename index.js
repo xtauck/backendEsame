@@ -6,6 +6,8 @@ const port = 3000
 app.use(bodyParser())
 app.use(cors())
 
+var repairs=[]
+
 app.get('/t', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
@@ -13,12 +15,18 @@ app.get('/t', (req, res) => {
 })
 
 app.listen(process.env.PORT || port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Backend listening at port 80`)
 })
 
 app.post('/calculate', (req, res) => {
-  console.log(req.body)
+  let info=req.body.data.info
+  let start=info.startDate
+  let finish=info.endDate
+
+
+  repairs.push(req.body.data)
+
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
-  res.send(req.body)
+  res.send(info)
 })
