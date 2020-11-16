@@ -4,6 +4,7 @@ var cors = require('cors')
 const app = express()
 const port = 3000
 app.use(bodyParser())
+app.use(cors())
 
 app.get('/t', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*")
