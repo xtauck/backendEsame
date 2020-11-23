@@ -6,7 +6,7 @@ const port = 3000
 app.use(bodyParser())
 app.use(cors())
 
-var repairs = []
+var reservations = []
 
 app.listen(process.env.PORT || port, () => {
   console.log(`Backend listening at port 80`)
@@ -16,12 +16,12 @@ app.post('/calculate', (req, res) => {
   let info = req.body.info
   let start = new Date(info.startDate)
   let finish = new Date(info.endDate)
-  let deviceType = info.device
+  let carType = info.carType
   let cost=0
   console.log(req.body)
   let hours= Math.floor((finish - start) / (1000*60*60))
   console.log(hours)
-  switch (deviceType) {
+  switch (carType) {
     case "Citycar":
       cost=50*hours
       break
@@ -33,7 +33,7 @@ app.post('/calculate', (req, res) => {
       break
   }
   info.cost=cost
-  repairs.push(info)
+  reservations.push(info)
   let result={price: cost}
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With")
