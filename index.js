@@ -19,17 +19,17 @@ app.post('/calculate', (req, res) => {
   let carType = info.carType
   let cost=0
   console.log(req.body)
-  let hours= Math.floor((finish - start) / (1000*60*60))
-  console.log(hours)
+  let days= Math.ceil(Math.floor((finish - start) / (1000*60*60))/24)
+  console.log(days)
   switch (carType) {
     case "Citycar":
-      cost=50*hours
+      cost=50*days
       break
       case "Utilitaria":
-      cost=75*hours
+      cost=75*days
       break
       case "Berlina":
-      cost=110*hours
+      cost=110*days
       break
   }
   info.cost=cost
