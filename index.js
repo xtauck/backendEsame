@@ -22,14 +22,14 @@ app.post('/calculate', (req, res) => {
   let hours= Math.floor((finish - start) / (1000*60*60))
   console.log(hours)
   switch (deviceType) {
-    case "PC Desktop":
-      cost=30*hours
-      break
-      case "Tablet":
-      cost=20*hours
-      break
-      case "Notebook":
+    case "Citycar":
       cost=50*hours
+      break
+      case "Utilitaria":
+      cost=75*hours
+      break
+      case "Berlina":
+      cost=110*hours
       break
   }
   info.cost=cost
